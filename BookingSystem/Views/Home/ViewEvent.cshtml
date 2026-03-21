@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "ViewEvent";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Events</h2>
+        <a class="btn btn-primary" href="@Url.Action("CreateEvent", "Home")">Report New Event</a>
+    </div>
+
+    <table id="listTable" class="display nowrap table table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th>EventName</th>
+                <th>EventDate</th>
+                <th>Description</th>
+                <th>VenueName</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.Events != null && (ViewBag.Events as List<Dictionary<string, object>>).Count > 0)
+            {
+                foreach (var ev in ViewBag.Events as List<Dictionary<string, object>>)
+                {
+                    <tr>
+                        <td>@ev["EventName"]</td>
+                        <td>@((DateTime)ev["EventDate"])</td>
+                        <td>@ev["Description"]</td>
+                        <td>@ev["VenueName"]</td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-secondary"
+                               asp-controller="Home"
+                               asp-action="UpdateEvent"
+                               asp-route-id="@ev["EventId"]">Update</a>
+                            <a class="btn btn-sm btn-outline-danger"
+                               asp-controller="Home"
+                               asp-action="DeleteEvent"
+                               asp-route-id="@ev["EventId"]">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No records found</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#listTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+                scrollX: true,
+                ordering: true,
+                info: true,
+                paging: true,
+                order: [[0, 'desc']]
+            });
+        });
+    </script>
+}
+
+

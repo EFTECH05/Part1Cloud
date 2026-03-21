@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Create Venue";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">Create Venue</h3>
+                </div>
+
+                <div class="card-body">
+                    <form method="post" action="/home/registerVenue" enctype="multipart/form-data">
+
+                        <!-- Venue Name -->
+                        <div class="mb-3">
+                            <label for="VenueName" class="form-label">Venue Name</label>
+                            <input id="VenueName" name="VenueName" type="text" class="form-control" placeholder="Enter the venue name" required />
+                        </div>
+
+                        <!-- Location -->
+                        <div class="mb-3">
+                            <label for="Location" class="form-label">Location</label>
+                            <input id="Location" name="Location" type="text" class="form-control" placeholder="Enter the location" required />
+                        </div>
+
+                        <!-- Capacity -->
+                        <div class="mb-3">
+                            <label for="Capacity" class="form-label">Capacity</label>
+                            <input id="Capacity" name="Capacity" type="number" class="form-control" placeholder="Enter the capacity" required />
+                        </div>
+
+                        <!-- Image Upload -->
+                        <div class="mb-3">
+                            <label for="ImageFile" class="form-label">Venue Image</label>
+                            <input id="ImageFile" name="ImageFile" type="file" class="form-control" />
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+                            <input type="reset" class="btn btn-secondary" value="Reset" />
+                            <input type="submit" class="btn btn-primary" value="Submit" />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

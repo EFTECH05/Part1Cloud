@@ -1,0 +1,45 @@
+﻿@model BookingSystem.Models.RegisterBookingViewModel
+@{
+    ViewData["Title"] = "Booking";
+}
+
+<div class="container mt-5">
+    <h2>Create Booking</h2>
+
+    <form asp-action="RegisterBooking" method="post">
+        <div class="mb-3">
+            <label for="EventId" class="form-label">Select Event</label>
+            <select class="form-select" asp-for="EventId" required>
+                <option value="">-- Select Event --</option>
+                @if (ViewBag.EventList != null)
+                {
+                    foreach (var evt in (List<SelectListItem>)ViewBag.EventList)
+                    {
+                        <option value="@evt.Value">@evt.Text</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="VenueId" class="form-label">Select Venue</label>
+            <select class="form-select" asp-for="VenueId" required>
+                <option value="">-- Select Venue --</option>
+                @if (ViewBag.VenueList != null)
+                {
+                    foreach (var venue in (List<SelectListItem>)ViewBag.VenueList)
+                    {
+                        <option value="@venue.Value">@venue.Text</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="BookingDate" class="form-label">Booking Date</label>
+            <input type="datetime-local" class="form-control" asp-for="BookingDate" required />
+        </div>
+
+        <button type="submit" class="btn btn-success">Create Booking</button>
+    </form>
+</div>

@@ -1,0 +1,55 @@
+﻿@model BookingSystem.Models.RegisterBookingViewModel
+@{
+    ViewData["Title"] = "Update Booking";
+}
+
+<div class="container mt-5">
+    <h2>Update Booking</h2>
+
+    <form asp-action="UpdateBooking" asp-controller="Home" method="post">
+        <input type="hidden" name="id" value="@ViewBag.BookingId" />
+
+        <div class="mb-3">
+            <label for="EventId" class="form-label">Event</label>
+            <select class="form-select" name="EventId" id="EventId" required>
+                @foreach (var ev in (List<SelectListItem>)ViewBag.EventList)
+                {
+                    if (Model.EventId.ToString() == ev.Value)
+                    {
+                        <option value="@ev.Value" selected>@ev.Text</option>
+                    }
+                    else
+                    {
+                        <option value="@ev.Value">@ev.Text</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="VenueId" class="form-label">Venue</label>
+            <select class="form-select" name="VenueId" id="VenueId" required>
+                @foreach (var venue in (List<SelectListItem>)ViewBag.VenueList)
+                {
+                    if (Model.VenueId.ToString() == venue.Value)
+                    {
+                        <option value="@venue.Value" selected>@venue.Text</option>
+                    }
+                    else
+                    {
+                        <option value="@venue.Value">@venue.Text</option>
+                    }
+                }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="BookingDate" class="form-label">Booking Date</label>
+            <input type="datetime-local" class="form-control" name="BookingDate" id="BookingDate"
+                   value="@Model.BookingDate.ToString("yyyy-MM-ddTHH:mm")" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Booking</button>
+        <a class="btn btn-secondary" href="@Url.Action("ViewBooking", "Home")">Cancel</a>
+    </form>
+</div>

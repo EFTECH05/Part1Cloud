@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Create Event";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">Create Event</h3>
+                </div>
+
+                <div class="card-body">
+                    <form method="post" action="/home/registerEvent">
+
+                        <!-- Event Name -->
+                        <div class="mb-3">
+                            <label for="EventName" class="form-label">Event Name</label>
+                            <input id="EventName" name="EventName" type="text" class="form-control" placeholder="Enter the event name" required />
+                        </div>
+
+                        <!-- Venue Dropdown -->
+                        <div class="mb-3">
+                            <label for="VenueId" class="form-label">Select Venue</label>
+                            <select id="VenueId" name="VenueId" class="form-select" required>
+                                <option value="">-- Select Venue --</option>
+                                @foreach (var item in ViewBag.VenueList as List<SelectListItem>)
+                                {
+                                    <option value="@item.Value">@item.Text</option>
+                                }
+                            </select>
+                        </div>
+
+                        <!-- Event Date -->
+                        <div class="mb-3">
+                            <label for="EventDate" class="form-label">Event Date & Time</label>
+                            <input id="EventDate" name="EventDate" type="datetime-local" class="form-control" required />
+                        </div>
+
+                        <!-- Description -->
+                        <div class="mb-3">
+                            <label for="Description" class="form-label">Description</label>
+                            <textarea id="Description" name="Description" class="form-control" placeholder="Enter the description" rows="3" required></textarea>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+                            <input type="reset" class="btn btn-secondary" value="Reset" />
+                            <input type="submit" class="btn btn-primary" value="Submit" />
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

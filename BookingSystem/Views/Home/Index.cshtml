@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4"> Admin Dashboard</h2>
+
+    <div class="row">
+        <!-- Venues Card -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Venues</h5>
+                    <p class="card-text">View and manage all venues.</p>
+                    <a href="@Url.Action("ViewVenue", "Home")" class="btn btn-primary">View Venues</a>
+                    <a href="@Url.Action("CreateVenue", "Home")" class="btn btn-success mt-2">Add Venue</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Events Card -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Events</h5>
+                    <p class="card-text">View and manage all events.</p>
+                    <a href="@Url.Action("ViewEvent", "Home")" class="btn btn-primary">View Events</a>
+                    <a href="@Url.Action("CreateEvent", "Home")" class="btn btn-success mt-2">Add Event</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bookings Card -->
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Bookings</h5>
+                    <p class="card-text">View and manage all bookings.</p>
+                    <a href="@Url.Action("ViewBooking", "Home")" class="btn btn-primary">View Bookings</a>
+                    <a href="@Url.Action("Booking", "Home")" class="btn btn-success mt-2">Add Booking</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

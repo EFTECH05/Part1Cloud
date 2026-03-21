@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EvenEase Booking</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ecfdf5, #f0fdf4);
+            overflow-x: hidden;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background: rgba(16, 185, 129, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 0 0 20px 20px;
+            animation: slideDown 0.8s ease;
+        }
+
+        @@keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .nav-link {
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .nav-link::after {
+            content: "";
+            width: 0%;
+            height: 2px;
+            background: #facc15;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* MAIN */
+        .main-container {
+            margin-top: 30px;
+        }
+
+        /* HERO */
+        .hero-section {
+            padding: 70px 20px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            animation: fadeInUp 1s ease;
+        }
+
+        @@keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .hero-section p {
+            max-width: 600px;
+            margin: auto;
+            opacity: 0.9;
+        }
+
+        /* BUTTON */
+        .btn-primary {
+            background: white;
+            color: #10b981;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #facc15;
+            color: black;
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* CARDS */
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .feature-card h4 {
+            color: #10b981;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            background: #10b981;
+            color: white;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* RESPONSIVE */
+        @@media (max-width: 767px) {
+            .hero-section h1 {
+                font-size: 1.9rem;
+            }
+
+            .btn-primary {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark shadow">
+            <div class="container">
+                <a class="navbar-brand fw-bold d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <span class="me-2">🎟️</span>
+                    EvenEase
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index"> Back Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="ViewVenue"></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Privacy"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <div class="container">
+        <div class="main-container">
+
+            <!-- HERO -->
+            <div class="hero-section text-center mb-5" data-aos="fade-up">
+                <h1>🎟️ EvenEase Booking</h1>
+                <p class="lead">
+                    Book venues, manage events, and stay organized — all in one powerful platform.
+                </p>
+
+                <a class="btn btn-primary btn-lg mt-4" asp-controller="Home" asp-action="ViewVenue">
+                    Explore Venues 🚀
+                </a>
+            </div>
+
+            <hr />
+
+            <!-- FEATURES -->
+            <div class="row text-center mt-5">
+                <div class="col-md-4 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="feature-card">
+                        <h4>📅 Easy Booking</h4>
+                        <p class="text-muted">Book venues quickly with a smooth system.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="feature-card">
+                        <h4>⚡ Smart Scheduling</h4>
+                        <p class="text-muted">Avoid conflicts with smart scheduling.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-12" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="feature-card">
+                        <h4>🔒 Secure System</h4>
+                        <p class="text-muted">Your data is protected and secure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+
+            @RenderBody()
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 EvenEase Booking | Designed by Franklin Ngangu 🚀</p>
+    </footer>
+
+    <!-- JS -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

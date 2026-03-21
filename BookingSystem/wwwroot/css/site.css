@@ -1,0 +1,154 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    min-height: 100vh;
+}
+
+.getinline {
+    display: inline-block;
+    vertical-align: middle;
+    color: blue;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.getinline1 {
+    padding-top: -25px;
+    margin-top: -14px;
+    transition: 0.5s;
+}
+
+    .getinline1:hover {
+        /*background-color: orangered;*/
+        background: linear-gradient(to right,blue,orangered);
+        transition: 0.5s;
+        color: white;
+    }
+
+.hidden.active {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.input {
+    border: none;
+    outline: none;
+    border-bottom: inset 2px black;
+    width: 250px;
+}
+
+.back {
+    background-color: dimgrey;
+    color: white;
+    border: none;
+}
+
+back:hover {
+    background-color: wheat;
+    color: black !important;
+    transition: 2s;
+}
+
+.inline {
+    text-align: right;
+}
+
+.GetThInCenter {
+    color: red;
+}
+
+.GetTh {
+    background-color: white;
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    border-left: 2px solid black;
+}
+
+.GetTrow {
+    border-right: 2px solid black;
+}
+
+.GetTh1 {
+    background-color: black;
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+}
+
+.Lign2 {
+    border-bottom: none;
+    color: black;
+    border-radius: 30%;
+    transition: 0.5s;
+}
+
+    .Lign2:hover {
+        color: orangered !important;
+        border-radius: 40%;
+        transition: 0.5s;
+    }
+
+.Getbackground {
+    border: solid 2px red;
+    padding: 20px 20px 20px 20px;
+    font-size: 42px;
+    background-color: white;
+    transition: 0.5s;
+}
+
+    .Getbackground:hover {
+        background: linear-gradient(to right,blue,orangered);
+        color: white;
+        border: solid 2px white;
+        transition: 0.5s;
+        cursor: pointer;
+    }
+
+.pushHome_Admin_toright {
+    margin-left: 70%;
+}

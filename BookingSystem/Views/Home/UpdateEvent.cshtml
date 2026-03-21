@@ -1,0 +1,43 @@
+﻿@model BookingSystem.Models.RegisterEventViewModel
+@{
+    ViewData["Title"] = "Update Event";
+}
+
+<div class="container mt-5">
+    <h2>Update Event</h2>
+
+    <form asp-action="UpdateEvent" asp-controller="Home" method="post">
+        <input type="hidden" name="id" value="@ViewBag.EventId" />
+
+        <div class="mb-3">
+            <label for="EventName" class="form-label">Event Name</label>
+            <input type="text" class="form-control" name="EventName" id="EventName" value="@Model.EventName" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="EventDate" class="form-label">Event Date</label>
+            <input type="datetime-local" class="form-control" name="EventDate" id="EventDate"
+                   value="@Model.EventDate.ToString("yyyy-MM-ddTHH:mm")" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <textarea class="form-control" name="Description" id="Description" rows="3" required>@Model.Description</textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="VenueId" class="form-label">Venue</label>
+            <select class="form-select" name="VenueId" id="VenueId" required>
+                @foreach (var venue in (List<SelectListItem>)ViewBag.VenueList)
+                {
+                    <option value="@venue.Value" selected="@(venue.Value == Model.VenueId.ToString() ? "selected" : null)">
+                        @venue.Text
+                    </option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Event</button>
+        <a class="btn btn-secondary" href="@Url.Action("ViewEvent", "Home")">Cancel</a>
+    </form>
+</div>

@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "ViewBooking";
+}
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Bookings</h2>
+        <a class="btn btn-primary" href="@Url.Action("Booking", "Home")">Report New Booking</a>
+    </div>
+
+    <table id="listTable" class="display nowrap table table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th>Booking ID</th>
+                <th>Event Name</th>
+                <th>Venue Name</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewBag.tBooking != null && ((List<Dictionary<string, object>>)ViewBag.tBooking).Count > 0)
+            {
+                foreach (var booking in (List<Dictionary<string, object>>)ViewBag.tBooking)
+                {
+                    <tr>
+                        <td>@booking["BookingId"]</td>
+                        <td>@booking["EventName"]</td>
+                        <td>@booking["VenueName"]</td>
+                        <td>
+                            <img src="@((booking["ImageUrl"] ?? "/Images/default.png").ToString())"
+                                 alt="Venue Image"
+                                 style="height:50px; width:auto;"
+                                 class="img-thumbnail" />
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-outline-secondary"
+                                   href="@Url.Action("UpdateBooking", "Home", new { id = booking["BookingId"] })">
+                                Update
+                            </a>
+                            <a class="btn btn-sm btn-outline-danger"
+                                   href="@Url.Action("DeleteBooking", "Home", new { id = booking["BookingId"] })">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center text-muted">No records found</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#listTable').DataTable({
+                dom: 'Bfrtip',
+                buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+                scrollX: true,
+                ordering: true,
+                info: true,
+                paging: true,
+                order: [[0, 'desc']]
+            });
+        });
+    </script>
+}
