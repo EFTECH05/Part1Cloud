@@ -1,58 +1,89 @@
-# BookingSystem
-Part 1 — Project Foundation and Initial Deployment                                                          
-Related Content: Learning Units: 1-2 
-At the end of this specific part, students should be able to: 
-(Marks: 100) 
-Practically 
- 
- 
- 
- 
-Design and create a Basic Database Structure. 
-Implement ASP.NET Core MVC Basics. 
-Integrate Azure SQL Database with ASP.NET Core. 
-Deploy an ASP.NET Core web application to Azure. 
-Theoretically 
- 
-Explain the difference between deploying on-premises and in the cloud. 
- 
-A.  
-Identify key differences between Azure hosting models. 
-Design the EventEase Database 
-Based on the background information provided earlier, develop an Entity-Relationship-Diagram 
-with an accompanying Database Script that will hold the data to be captured into the EventEase 
-system. Your database should contain three main tables for now, based on the CEO’s requirements 
-in the background provided above. 
-B.  
-Develop the Web Application  
-Build an ASP.NET Core web application with corresponding models, controllers, and views for the 
-EventEase system. 
-Your web application should include the following: 
- 
- 
- 
-The relevant Models, Controllers, and Views for each of the Venues, Events, and Bookings. 
-Your application should communicate with your database, implementing CRUD functionality. 
-For the images, use placeholder URLs (links to sample images) for venues and events in this 
-phase. 
-© The Independent Institute of Education (Pty) Ltd 2026 
-Page 7 of 19 
-24; 25; 26                
-2026 
-C.  
- 
- 
-D.  
-1. 
-2. 
-Deploy your Web app and Database to Microsoft Azure: 
-Set up an Azure web app service and deploy your web app to this service. 
-Set up an Azure SQL Database and migrate your local data to the database service. 
-Cloud Computing Basics 
-In what ways does deploying an application in the cloud differ from deploying it on premises, 
-particularly regarding security, deployment speed, and resource management? Use examples 
-to illustrate your points. 
-What are the key differences between Infrastructure as a Service (IaaS), Platform as a Service 
-(PaaS), and Software as a Service (SaaS), and why might EventEase benefit from the use of 
-PaaS over the other two when building a new application? Use examples to support your 
-answer. 
+# CLDV7111 – EventEase Venue Booking System
+
+## Student Information
+- Module: CLDV7111 – Cloud Development A
+- Project: EventEase Venue Booking System
+- Type: Portfolio of Evidence (POE)
+- Repository: https://github.com/EFTECH05/Part1Cloud
+- web link : https://bookingmanagement-e6chdghmcvc8gfae.centralus-01.azurewebsites.net/Home/Index
+<img width="1315" height="542" alt="image" src="https://github.com/user-attachments/assets/f7b19804-9c78-4bfd-bc5f-fe12b19e0634" />
+
+---
+
+## Project Description
+EventEase is a cloud-based venue booking system built using ASP.NET Core MVC.  
+It is designed to manage venues, events, and bookings while preventing scheduling conflicts such as double bookings.
+
+---
+
+## Technologies Used
+- ASP.NET Core MVC
+- C#
+- Entity Framework Core
+- SQL Server / Azure SQL Database
+- HTML, CSS, Bootstrap
+- Git & GitHub
+
+---
+
+## Azure Services Used
+- Azure App Service (Web Hosting)
+- Azure SQL Database (Data Storage)
+- Azure Blob Storage (Images – Part 2)
+
+---
+
+## Core Features
+
+### Venue Management
+- Create, view, update, delete venues
+- Store venue details (name, location, capacity, image)
+
+### Event Management
+- Create and manage events
+- Assign events to venues
+
+### Booking Management
+- Create bookings between events and venues
+- Prevent double bookings
+- Restrict deletion of booked records
+
+### Search & Filtering
+- Search bookings by Booking ID or Event Name
+- Filter by date, venue, and event type (Part 3)
+
+---
+
+## Database Tables
+- Venue
+- Event
+- Booking
+- EventType (Part 3)
+<img width="601" height="301" alt="image" src="https://github.com/user-attachments/assets/cac25ed7-b54a-4bef-b47d-38d7052137a4" />
+
+---
+
+## Deployment
+- Hosted on Azure App Service
+- Database hosted on Azure SQL Database
+<img width="595" height="318" alt="image" src="https://github.com/user-attachments/assets/bf4178af-fa1c-4b73-bce1-fc16adf7f1e7" />
+<img width="594" height="324" alt="image" src="https://github.com/user-attachments/assets/472502e5-8773-4417-814e-6354ff04457f" />
+
+---
+
+## GitHub Link
+https://github.com/EFTECH05/Part1Cloud
+
+---
+
+## Learning Outcomes
+- ASP.NET Core MVC development
+- CRUD operations implementation
+- Azure cloud deployment
+- Database integration
+- Validation and error handling
+
+---
+
+## Notes
+This project is part of my  academic assessment for CLDV7111 (Advanced Diploma in Cloud Development).
